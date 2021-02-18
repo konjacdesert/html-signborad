@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
             var mes = document.getElementById("mes");
             if (mes) {
                 mes.innerText = decodeURI(qm[1]).replace("\n", "");
-                mes.style.animationDuration = (mes.clientWidth - document.body.clientWidth) / mes.clientHeight * 2.5 + "s";
+                mes.style.animationDuration = Math.max((mes.clientWidth - document.body.clientWidth) / mes.clientHeight * 2.5, 10) + "s";
             }
         }
     }
