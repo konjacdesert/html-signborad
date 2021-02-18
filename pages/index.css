@@ -1,0 +1,45 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+  background-color: #000;
+}
+.marquee {
+  position: absolute;
+
+  height: 100%;
+
+  padding-left: 100%;
+  font-family: serif;
+  font-size: 70vh;
+  line-height: 100%;
+
+  white-space: nowrap;
+  color: #f80;
+
+  animation: marquee 30s linear infinite;
+  display: grid;
+  place-items: center;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+.filter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: radial-gradient(closest-side, #0000 50%, #000 100%);
+  background-size: 4vh 4vh;
+}
