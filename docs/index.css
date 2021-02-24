@@ -13,25 +13,16 @@ span {
   position: absolute;
   font-size: 24px;
   font-family: serif;
-  color: #f80;
-  line-height: 100%;
+  line-height: 125%;
 }
 
 canvas {
   image-rendering: pixelated;
+
   position: absolute;
-
   height: 100%;
-
   padding-left: 100%;
-  font-family: serif;
-  font-size: 70vh;
-  line-height: 100%;
 
-  white-space: nowrap;
-  color: #f80;
-
-  /* animation: marquee 30s steps(303) infinite; */
   animation: marquee 30s linear infinite;
   display: grid;
   place-items: center;

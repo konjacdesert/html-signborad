@@ -34,4 +34,11 @@ window.addEventListener("load", () => {
   const filter = document.getElementById("f");
   if (filter)
     filter.style.backgroundSize = `${100 / size.h}vh ${100 / size.h}vh`;
+
+  textcanvas.style.animationDuration = `${Math.max(
+    ((textcanvas.clientWidth - document.body.clientWidth) /
+      textcanvas.clientHeight) *
+      2.5,
+    10
+  )}s`;
 });
