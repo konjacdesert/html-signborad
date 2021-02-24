@@ -7,7 +7,18 @@ body {
   user-select: none;
   background-color: #000;
 }
-.marquee {
+
+span {
+  visibility: hidden;
+  position: absolute;
+  font-size: 24px;
+  font-family: serif;
+  color: #f80;
+  line-height: 100%;
+}
+
+canvas {
+  image-rendering: pixelated;
   position: absolute;
 
   height: 100%;
@@ -20,6 +31,7 @@ body {
   white-space: nowrap;
   color: #f80;
 
+  /* animation: marquee 30s steps(303) infinite; */
   animation: marquee 30s linear infinite;
   display: grid;
   place-items: center;
@@ -40,6 +52,8 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  background-image: radial-gradient(closest-side, #0000 50%, #000 100%);
+  background-image: linear-gradient(#000 0%, #0000 20%, #0000 80%, #000 100%),
+    linear-gradient(90deg, #000 0%, #0000 50%, #000 100%);
   background-size: 4vh 4vh;
+  z-index: 100;
 }
