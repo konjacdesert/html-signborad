@@ -1,5 +1,8 @@
 window.addEventListener("load", () => {
-  const mes = (() => {
+  const fontSize = 24;
+  const fontText = `${fontSize}px serif`;
+
+  const messageText = (() => {
     const q_split = location.search.substring(1).split("&");
     for (const q of q_split) {
       const qm = q.split("=");
@@ -7,29 +10,31 @@ window.addEventListener("load", () => {
     }
     return "";
   })();
-  console.log(mes);
+  // console.log(messageText);
 
-  if (mes == "") return;
+  if (messageText == "") return;
 
   const size = (() => {
-    const sizedom = document.createElement("span");
-    sizedom.innerText = mes;
-    document.body.appendChild(sizedom);
-    const r = { w: sizedom.offsetWidth, h: sizedom.offsetHeight };
+    const sizeDom = document.createElement("span");
+    sizeDom.innerText = messageText;
+    sizeDom.style.font = fontText;
+    // sizedom.style.lineHeight = "100%";
+    document.body.appendChild(sizeDom);
+    const r = { w: sizeDom.offsetWidth, h: sizeDom.offsetHeight };
     // document.body.removeChild(sizedom);
     return r;
   })();
-  console.log(size);
+  // console.log(size);
 
   const textcanvas = document.createElement("canvas");
   textcanvas.width = size.w;
   textcanvas.height = size.h;
-  const ctx = textcanvas.getContext("2d", { alpha: false });
+  const ctx = textcanvas.getContext("2d");
   if (ctx) {
-    ctx.font = "24px serif";
-    ctx.textBaseline = "middle";
+    ctx.font = fontText;
+    ctx.textBaseline = "top";
     ctx.fillStyle = "#F80";
-    ctx.fillText(mes, 0, size.h / 2);
+    ctx.fillText(messageText, 0, (size.h - fontSize) / 2);
   }
   document.body.appendChild(textcanvas);
 
