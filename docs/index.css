@@ -24,8 +24,8 @@ canvas {
   padding-left: 100%;
 
   animation: marquee 30s linear infinite;
-  display: grid;
-  place-items: center;
+  /* display: grid; */
+  /* place-items: center; */
 }
 
 @keyframes marquee {
