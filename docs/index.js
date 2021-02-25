@@ -10,6 +10,8 @@ window.addEventListener("load", function () {
         return "";
     })();
     console.log(mes);
+    if (mes == "")
+        return;
     var size = (function () {
         var sizedom = document.createElement("span");
         sizedom.innerText = mes;

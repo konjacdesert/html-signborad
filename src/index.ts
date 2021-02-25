@@ -9,6 +9,8 @@ window.addEventListener("load", () => {
   })();
   console.log(mes);
 
+  if (mes == "") return;
+
   const size = (() => {
     const sizedom = document.createElement("span");
     sizedom.innerText = mes;
