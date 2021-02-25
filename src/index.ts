@@ -35,17 +35,30 @@ window.addEventListener("load", () => {
     ctx.textBaseline = "top";
     ctx.fillStyle = "#F80";
     ctx.fillText(messageText, 0, (size.h - fontSize) / 2);
+    // ctx.fillRect(0, 0, size.w, 1);
+    // ctx.fillRect(0, size.h - 1, size.w, 1);
   }
   document.body.appendChild(textcanvas);
 
   const filter = document.getElementById("f");
-  if (filter)
-    filter.style.backgroundSize = `${100 / size.h}vh ${100 / size.h}vh`;
+  if (filter) {
+    const s = 100 / size.h;
+    filter.style.backgroundSize = `calc(var(--vh,1vh)*${s}) calc(var(--vh,1vh)*${s})`;
+  }
 
   textcanvas.style.animationDuration = `${Math.max(
     ((textcanvas.clientWidth - document.body.clientWidth) /
       textcanvas.clientHeight) *
-      2.5,
+      3,
     10
   )}s`;
+  updateVh();
 });
+
+function updateVh() {
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight * 0.01}px`
+  );
+}
+window.addEventListener("resize", updateVh);
